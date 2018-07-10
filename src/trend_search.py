@@ -1,10 +1,22 @@
-# Main class (TrendSearch)
+from pytrends.request import TrendReq
+from pymongo import MongoClient
+
+
+"""
+@author Chris Farr
+TrendSearch class is used for connecting to Google trends and writing data
+back to a MongoDB.
+
+Resources:
+# https://github.com/GeneralMills/pytrends#connect-to-google
+"""
+
+
 class TrendSearch:
     def __init__(self):
-        # Connect to google API
-        # https://github.com/GeneralMills/pytrends#connect-to-google
-        # Connect to Mongo db
-        pass
+        self.google_api = TrendReq()  # Connect to google API
+        self.mongo_client = MongoClient("trends_mongo_1:27017")  # Connect to Mongo db
+        return
 
     def search(self, query):
         # Param: text query
@@ -24,3 +36,18 @@ class TrendSearch:
         # Get list of collection names from mongo
         # Return list
         pass
+
+
+"""
+client = MongoClient("trends_mongo_1:27017")
+db = client.test_db
+test = db.test_collection
+test.insert_one({"data": "it works"})
+
+
+@app.route("/")
+def hello():
+    output = test.find_one()["data"]
+    return output
+
+"""

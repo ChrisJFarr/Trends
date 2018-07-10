@@ -6,20 +6,9 @@ from pymongo import MongoClient
 app = Flask(__name__)
 
 
-# client = MongoClient("trends_mongo_1:27017")
-# db = client.test_db
-# test = db.test_collection
-# test.insert_one({"data": "it works"})
-
-
-# @app.route("/")
-# def hello():
-#     output = test.find_one()["data"]
-#     return output
-
 
 @app.route("/")
-def hello():
+def home():
     return render_template("index.html")
 
 
