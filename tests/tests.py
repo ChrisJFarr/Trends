@@ -1,9 +1,19 @@
+import unittest
 from unittest import TestCase
+from src.trend_search import TrendSearch
 
 
-class TestTrendFinder(TestCase):
+class TestTrendSearch(TestCase):
+
+    trend_search = None
+
     def setUp(self):
-        # Create instance of TrendFinder
+        # Create instance of TrendSearch
+        self.trend_search = TrendSearch()
+        return
+
+    def test_setup(self):
+        # assert collections for taylor swift, elton john, royals, and chiefs exist
         pass
 
     def test_search(self):
@@ -17,3 +27,7 @@ class TestTrendFinder(TestCase):
     def test_list_collections(self):
         # assert list is returned and that each collection exists in mongo
         pass
+
+
+if __name__ == "__main__":
+    unittest.main()

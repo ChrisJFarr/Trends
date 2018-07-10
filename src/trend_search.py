@@ -4,7 +4,7 @@ from pymongo import MongoClient
 
 """
 @author Chris Farr
-TrendSearch class is used for connecting to Google trends and writing data
+TrendSearch class is used for connecting to Google trends and writing search results
 back to a MongoDB.
 
 Resources:
@@ -15,8 +15,15 @@ Resources:
 class TrendSearch:
     def __init__(self):
         self.google_api = TrendReq()  # Connect to google API
-        self.mongo_client = MongoClient("trends_mongo_1:27017")  # Connect to Mongo db
+        self.mongo_client = MongoClient("trends_mongo_1:27017")
+        self.db = self.mongo_client.google_searches  # Connect to Mongo db
         return
+
+    def setup(self):
+        # Test for collections in Mongo
+        # If doesn't exist, search for Taylor Swift, Royals, and Chiefs
+        # Store in Mongo
+        pass
 
     def search(self, query):
         # Param: text query
