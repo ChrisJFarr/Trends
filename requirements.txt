@@ -1,0 +1,4 @@
+
+pymongo==3.7.0
+Flask==1.0.2
+pytrends==4.4.0

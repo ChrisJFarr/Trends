@@ -1,4 +1,25 @@
 # Mongo container
 # App container
 
+# Use root/example as user/password credentials
+version: '3.1'
 
+services:
+
+  mongo:
+    image: mongo:3.2.7
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - data-volume:/var/lib/db
+    links:
+      - web
+
+  web:
+    build: .
+    ports:
+      - 8000:80
+
+volumes:
+  data-volume:

@@ -13,6 +13,7 @@ Instructions (rough):
     * Copy folder address from file explorer
     * Open command prompt type “cd” space, then paste folder location
     * Type “docker…..” build and run (docker compose to spin up mongo and python app)
+        * docker-compose -f Docker-compose.yml up -d
         * Open web browser to http://localhost:8000/
     * Click on collection link or add new search
 
