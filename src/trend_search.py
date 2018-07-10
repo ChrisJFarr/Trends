@@ -23,12 +23,6 @@ class TrendSearch:
         self.db = self.mongo_client.google_searches  # Connect to Mongo db
         return
 
-    def setup(self):
-        # Test for collections in Mongo
-        # If doesn't exist, search for Taylor Swift, Royals, and Chiefs
-        # Store in Mongo
-        return
-
     def search(self, query) -> None:
         # Param: text query
         # API data in dictionary format
