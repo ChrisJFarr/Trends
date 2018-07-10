@@ -1,5 +1,5 @@
 # Flask API
-from flask import Flask, render_template, make_response
+from flask import Flask, render_template, make_response, request
 from src.trend_search import TrendSearch
 app = Flask(__name__)
 
@@ -11,16 +11,23 @@ trend_search = TrendSearch(mongo)
 
 @app.route("/")
 def home():
-    return render_template("index.html")
-
-
-# Instantiate instance of TrendFinder
-@app.route("/list_collections")
-def list_collections():
     # Call TrendFinder.list_collections
     # Build links for visualize with collection as param in each
     # Call in index.html
-    pass
+    collections = trend_search.list_collections()
+    return render_template("index.html", collections=collections)
+
+
+@app.route("/", methods=['POST'])
+def search():
+    # take argument from index.html text box
+        # https://stackoverflow.com/questions/12277933/send-data-from-a-textbox-into-flask
+    # Call TrendFinder.search
+    # Refresh page
+        # https://stackoverflow.com/questions/45666664/how-to-refresh-the-flask-web-page
+    trend_search.search(request.form["text"])
+    collections = trend_search.list_collections()
+    return render_template('index.html', collections=collections)
 
 
 @app.route("/visualize/<collection>")
@@ -33,16 +40,6 @@ def visualize(collection):
     response = make_response(png_output.getvalue())
     response.headers['Content-Type'] = 'image/png'
     return response
-
-
-@app.route("/search/<query>")
-def search(query):
-    # take argument from index.html text box
-        # https://stackoverflow.com/questions/12277933/send-data-from-a-textbox-into-flask
-    # Call TrendFinder.search
-    # Refresh page
-        # https://stackoverflow.com/questions/45666664/how-to-refresh-the-flask-web-page
-    pass
 
 
 if __name__ == "__main__":

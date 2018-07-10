@@ -70,7 +70,7 @@ class TrendSearch:
         # Param: none
         # Get list of collection names from mongo
         # Return list
-        return
+        return self.db.list_collection_names()
 
 
 """
