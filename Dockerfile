@@ -6,7 +6,7 @@ RUN apt-get install -y apt-utils python3-dev python3 python3-pip
 
 # Install python
 RUN ln /usr/bin/python3 /usr/bin/python
-RUN apt-get -y install python3-pip
+RUN apt-get -y install python3-pip python3-tk
 RUN ln /usr/bin/pip3 /usr/bin/pip
 RUN pip install --upgrade pip
 
@@ -16,7 +16,7 @@ ADD ./requirements.txt requirements.txt
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 # Copy application to image
-COPY ./src /app
+COPY . /app
 
 # Run flask app
 ENTRYPOINT ["python"]

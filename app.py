@@ -1,10 +1,12 @@
 # Flask API
-
-
-from flask import Flask, render_template
-from pymongo import MongoClient
+from flask import Flask, render_template, make_response
+from src.trend_search import TrendSearch
 app = Flask(__name__)
 
+
+DOCKER = True
+mongo = "trends_mongo_1:27017" if DOCKER else None
+trend_search = TrendSearch(mongo)
 
 
 @app.route("/")
@@ -27,7 +29,10 @@ def visualize(collection):
     # take argument for collection name
     # Render visual for collection
         # https://gist.github.com/wilsaj/862153
-    pass
+    png_output = trend_search.visualize(collection)
+    response = make_response(png_output.getvalue())
+    response.headers['Content-Type'] = 'image/png'
+    return response
 
 
 @app.route("/search/<query>")
