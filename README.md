@@ -24,25 +24,25 @@
 
 ## Example: Trending for Taylor Swift
 
-**Starting screen...**
+**_Starting screen..._**
 
 ![Starting Screen](https://github.com/ChrisJFarr/Trends/blob/master/images/start.PNG)
 
 ---
 
-**Type query into text box...**
+**_Type query into text box..._**
 
 ![Typing query](https://github.com/ChrisJFarr/Trends/blob/master/images/typing_taylor_swift.PNG)
 
 ---
 
-**Press submit...**
+**_Press submit..._**
 
 ![Press submit](https://github.com/ChrisJFarr/Trends/blob/master/images/submit_taylor_swift.PNG)
 
 ---
 
-**Click hyperlink and analyze results...**
+**_Click hyperlink and analyze results..._**
 
 ![Analyze results](https://github.com/ChrisJFarr/Trends/blob/master/images/taylor_swift_results.PNG)
 
