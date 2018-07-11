@@ -1,15 +1,12 @@
 import unittest
 from unittest import TestCase
 from src.trend_search import TrendSearch
+from io import BytesIO
 
 
 class TestTrendSearch(TestCase):
 
     trend_search = TrendSearch(None)
-
-    def test_setup(self):
-        # assert collections for taylor swift, elton john, royals, and chiefs exist
-        pass
 
     def test_search(self):
         db = self.trend_search.db
@@ -25,11 +22,14 @@ class TestTrendSearch(TestCase):
 
     def test_visualize(self):
         # assert image is returned
-        pass
+        self.assertIsInstance(self.trend_search.visualize(self.trend_search.list_collections()[0]),
+                              BytesIO,
+                              "Unexpected type returned, expected BytesIO")
 
     def test_list_collections(self):
         # assert list is returned and that each collection exists in mongo
-        pass
+        self.assertIsInstance(self.trend_search.list_collections(), list,
+                              "Unexpected type returned, expected list")
 
 
 if __name__ == "__main__":

@@ -8,11 +8,7 @@ from io import BytesIO
 
 """
 @author Chris Farr
-TrendSearch class is used for connecting to Google trends and writing search results
-back to a MongoDB.
-
-Resources:
-# https://github.com/GeneralMills/pytrends#connect-to-google
+TrendSearch class is used for connecting to Google trends and writing search results back to a MongoDB.
 """
 
 
@@ -23,8 +19,12 @@ class TrendSearch:
         self.db = self.mongo_client.google_searches  # Connect to Mongo db
         return
 
-    def search(self, query) -> None:
-        # Param: text query
+    def search(self, query):
+        """
+        Accept a query from user, connect to google-trends and store data in a MongoDB.
+        :param query: Text query, any string
+        :return: None
+        """
         # API data in dictionary format
         # TODO ensure not already a collection, if so delete
         self.google_api.build_payload([query])
@@ -41,6 +41,12 @@ class TrendSearch:
         return
 
     def visualize(self, collection):
+        """
+        Take argument for specific collection to query. Pull data from MongoDB. Create matplotlib visual
+        and convert to bytes for rendering in Flask API.
+        :param collection: string, collection name
+        :return: BytesIO object
+        """
         # Param: collection name
         # Query mongo and create data frame from output
         results = list(self.db[collection].find())
@@ -61,22 +67,7 @@ class TrendSearch:
         return png_output
 
     def list_collections(self):
-        # Param: none
-        # Get list of collection names from mongo
-        # Return list
-        return self.db.list_collection_names()
-
-
-"""
-client = MongoClient("trends_mongo_1:27017")
-db = client.test_db
-test = db.test_collection
-test.insert_one({"data": "it works"})
-
-
-@app.route("/")
-def hello():
-    output = test.find_one()["data"]
-    return output
-
-"""
+        """
+        :return: Return list of collections in MongoDB
+        """
+        return sorted(self.db.list_collection_names())
