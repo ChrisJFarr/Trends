@@ -1,5 +1,11 @@
 # Trend Search API
 
+## TODO add a holistic paragraph about the application
+* Problem statement
+* High level how it operates
+* Details how it operates
+
+
 ## Setup Instructions:
 1. **Install docker**
     * Windows: https://docs.docker.com/docker-for-windows/install/
