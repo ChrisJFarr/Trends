@@ -1,6 +1,6 @@
-## Trend Search API
+# Trend Search API
 
-### Setup Instructions:
+## Setup Instructions:
 1. **Install docker**
     * Windows: https://docs.docker.com/docker-for-windows/install/
     * Mac: https://docs.docker.com/docker-for-mac/install/
@@ -15,38 +15,34 @@
     * Click this link [http://localhost:8000/](http://localhost:8000/)
     * Click on collection link or add new search
 
----
----
 
-### Operating Instructions:
+## Operating Instructions:
 1. Type query into text-box on screen
 2. Click new hyperlink with query results
     * Navigate back to homepage for new query
 
----
----
 
-### Example: Trending for Taylor Swift
+## Example: Trending for Taylor Swift
 
-**Starting screen..**
+**Starting screen...**
 
 ![Starting Screen](https://github.com/ChrisJFarr/Trends/blob/master/images/start.PNG)
 
 ---
 
-**Type query into text box..**
+**Type query into text box...**
 
 ![Typing query](https://github.com/ChrisJFarr/Trends/blob/master/images/typing_taylor_swift.PNG)
 
 ---
 
-**Press submit..**
+**Press submit...**
 
 ![Press submit](https://github.com/ChrisJFarr/Trends/blob/master/images/submit_taylor_swift.PNG)
 
 ---
 
-**Analyze results..**
+**Click hyperlink and analyze results...**
 
 ![Analyze results](https://github.com/ChrisJFarr/Trends/blob/master/images/taylor_swift_results.PNG)
 
