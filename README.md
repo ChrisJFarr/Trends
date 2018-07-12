@@ -1,9 +1,14 @@
 # Trend Search API
 
-## TODO add a holistic paragraph about the application
-* Problem statement
-* High level how it operates
-* Details how it operates
+## Application Description
+This application uses `pytrends` to connect to Google Trends. Users are able to type a query
+into the search box and pull data from Google Trends into MongoDB. When a users clicks on the
+new hyperlink they are taken to a new page where they can view the 5 year interest trend for that 
+query on the internet. Each query is stored permanently in the MongoDB and can be viewed after 
+the application has been closed and re-launched.
+
+The entire application is contained in Docker containers, eliminating the need to install any
+dependencies outside of Docker. Follow the instructions and example below to see how it operates.
 
 
 ## Setup Instructions:
