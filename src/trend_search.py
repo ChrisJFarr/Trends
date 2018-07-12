@@ -26,7 +26,6 @@ class TrendSearch:
         :return: None
         """
         # API data in dictionary format
-        # TODO ensure not already a collection, if so delete
         self.google_api.build_payload([query])
         data = self.google_api.interest_over_time()
         # Create collection name from query
